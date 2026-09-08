@@ -50,13 +50,23 @@ function RolePicker() {
     <div className="min-h-screen bg-[radial-gradient(120%_100%_at_50%_0%,oklch(0.94_0.03_195)_0%,oklch(0.985_0.006_190)_55%)] dark:bg-[radial-gradient(120%_100%_at_50%_0%,oklch(0.2_0.03_220)_0%,oklch(0.16_0.02_220)_55%)]">
       <div className="mx-auto w-full max-w-6xl px-5 py-14 md:py-20">
         <header className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-2xl bg-primary font-display text-lg font-bold text-primary-foreground">
+          <div className="flex items-center gap-3.5">
+            <div className="relative grid size-12 place-items-center rounded-2xl bg-gradient-to-tr from-primary via-teal-500 to-emerald-500 shadow-md shadow-primary/20 text-white font-display text-xl font-extrabold tracking-wider">
               P
-            </span>
+              <span className="absolute -bottom-0.5 -right-0.5 size-3.5 rounded-full border-2 border-background bg-emerald-500" />
+            </div>
             <div>
-              <p className="font-display text-lg font-semibold text-foreground">PharmaConnect</p>
-              <p className="text-xs text-muted-foreground">B2B Ordering & Distribution Suite</p>
+              <div className="flex items-center gap-2">
+                <span className="font-display text-2xl font-extrabold tracking-tight text-foreground md:text-3xl">
+                  PharmaConnect
+                </span>
+                <span className="rounded-full bg-primary/10 border border-primary/25 px-2.5 py-0.5 text-[11px] font-bold text-primary tracking-wide">
+                  SUITE
+                </span>
+              </div>
+              <p className="text-xs font-medium text-muted-foreground">
+                B2B Pharma Ordering & Distribution Platform
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -64,26 +74,42 @@ function RolePicker() {
               variant="outline"
               size="icon"
               onClick={toggleTheme}
-              className="size-9"
+              className="size-9 rounded-xl"
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
               {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
             </Button>
-            <span className="rounded-full border border-primary/25 bg-primary/8 px-3 py-1 text-xs font-medium text-primary">
-              Interactive product demo · no login required
+            <span className="rounded-full border border-primary/25 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary shadow-xs">
+              Interactive Demo · No Login Required
             </span>
           </div>
         </header>
 
-        <div className="mt-12 max-w-3xl">
-          <h1 className="font-display text-4xl font-semibold leading-tight text-foreground md:text-5xl">
-            One order. Five roles. The entire distribution lifecycle.
+        <div className="mt-10 rounded-3xl border bg-card/60 p-6 md:p-8 backdrop-blur shadow-sm">
+          <h1 className="font-display text-3xl font-extrabold leading-tight text-foreground md:text-4xl lg:text-5xl">
+            One Order. Five Roles. <br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-primary via-teal-600 to-emerald-600 bg-clip-text text-transparent dark:from-sky-400 dark:via-teal-400 dark:to-emerald-400">
+              The Entire Distribution Lifecycle.
+            </span>
           </h1>
-          <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Place an order as a retail pharmacy and watch it flow through automatic FEFO batch
-            allocation, warehouse picking and packing, dispatch, live tracking and COD
-            reconciliation — all on one shared, persistent set of demo data.
+
+          <p className="mt-3.5 max-w-2xl text-base text-muted-foreground leading-relaxed md:text-lg">
+            Place an order as a retail pharmacy and watch it flow seamlessly through automatic FEFO batch
+            allocation, warehouse picking & packing, dispatch, live tracking, and COD
+            reconciliation.
           </p>
+
+          <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium">
+            <span className="inline-flex items-center gap-1.5 rounded-lg border bg-background/80 px-3 py-1 text-foreground shadow-2xs">
+              ⚡ FEFO Batch Engine
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-lg border bg-background/80 px-3 py-1 text-foreground shadow-2xs">
+              ❄️ Cold-Chain Telemetry
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-lg border bg-background/80 px-3 py-1 text-foreground shadow-2xs">
+              💳 Credit Terms & COD
+            </span>
+          </div>
         </div>
 
         {/* Hero Promotional Banner Carousel */}
