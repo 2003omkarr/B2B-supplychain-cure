@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
 import { Button } from "@/components/ui/button";
 import { NearExpiryCarousel } from "@/components/pharma/NearExpiryCarousel";
+import { PromoBannerCarousel } from "@/components/pharma/PromoBannerCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -98,6 +99,9 @@ function RolePicker() {
             </div>
           ))}
         </div>
+
+        {/* Hero Promotional Banner Carousel */}
+        <PromoBannerCarousel />
 
         {/* Near-expiry deals carousel — showcases the FEFO engine */}
         <NearExpiryCarousel />

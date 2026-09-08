@@ -4,6 +4,7 @@ import { Search, Snowflake, Minus, Plus, PackageCheck } from "lucide-react";
 import { toast } from "sonner";
 import { AppShell } from "@/components/pharma/AppShell";
 import { ExpiryPill, SectionHeader, EmptyState } from "@/components/pharma/bits";
+import { PromoBannerCarousel } from "@/components/pharma/PromoBannerCarousel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -83,6 +84,10 @@ function Catalog() {
           </Button>
         }
       />
+
+      <div className="mb-6">
+        <PromoBannerCarousel />
+      </div>
 
       <div className="mb-5 grid gap-3 rounded-xl border bg-card p-4 md:grid-cols-[1fr_auto_auto_auto]">
         <div className="relative">

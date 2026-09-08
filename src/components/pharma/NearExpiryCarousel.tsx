@@ -10,7 +10,7 @@ export function NearExpiryCarousel() {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Get products with near-expiry discounts, sorted by highest discount first
   const deals = useMemo(() => {
