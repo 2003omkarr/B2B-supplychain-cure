@@ -134,12 +134,16 @@ export function PromoBannerCarousel() {
   useEffect(() => {
     if (isPaused) return;
     timerRef.current = setInterval(advance, 4500);
-    return () => clearInterval(timerRef.current);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, [isPaused, advance]);
 
   const goTo = (idx: number) => {
     setCurrent(((idx % total) + total) % total);
-    if (timerRef.current) clearInterval(timerRef.current);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     if (!isPaused) {
       timerRef.current = setInterval(advance, 4500);
     }

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { AppShell } from "@/components/pharma/AppShell";
+import { AddMedicineModal } from "@/components/pharma/AddMedicineModal";
 import { ExpiryPill, KpiCard, SectionHeader } from "@/components/pharma/bits";
 import { Input } from "@/components/ui/input";
 import { available, inr, useStore } from "@/lib/pharma/store";
@@ -37,7 +38,11 @@ function AdminInventory() {
 
   return (
     <AppShell role="admin">
-      <SectionHeader title="Inventory batches" subtitle="Every batch, its reservations and stock value" />
+      <SectionHeader
+        title="Inventory batches"
+        subtitle="Every batch, its reservations and stock value"
+        actions={<AddMedicineModal />}
+      />
       <div className="mb-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <KpiCard label="Batches" value={state.batches.length} />
         <KpiCard label="Units on hand" value={totalUnits.toLocaleString("en-IN")} />

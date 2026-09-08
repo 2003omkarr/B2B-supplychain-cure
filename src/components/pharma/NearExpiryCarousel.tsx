@@ -31,13 +31,17 @@ export function NearExpiryCarousel() {
   useEffect(() => {
     if (total <= 1 || isPaused) return;
     timerRef.current = setInterval(advance, 4000);
-    return () => clearInterval(timerRef.current);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, [total, isPaused, advance]);
 
   const goTo = (idx: number) => {
     setCurrent(((idx % total) + total) % total);
     // Reset timer on manual navigation
-    if (timerRef.current) clearInterval(timerRef.current);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     if (!isPaused && total > 1) {
       timerRef.current = setInterval(advance, 4000);
     }

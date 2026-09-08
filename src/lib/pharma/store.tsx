@@ -106,6 +106,10 @@ interface Ctx {
   cancelOrder: (orderId: string) => void;
   collectCod: (orderId: string) => void;
   runErpSync: () => { added: number; updated: number };
+  addProductWithBatch: (
+    product: Omit<Product, "id">,
+    batch: Omit<Batch, "id" | "productId" | "reserved">
+  ) => void;
   updateSettings: (patch: Partial<Settings>) => void;
   markNotificationsRead: (role: Role) => void;
   resetDemo: () => void;
@@ -554,6 +558,27 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         });
         return { added, updated };
       },
+
+      addProductWithBatch: (productData, batchData) =>
+        set((d) => {
+          const newProdId = id("PRD");
+          const newProd: Product = { id: newProdId, ...productData };
+          const newBatch: Batch = {
+            id: id("BAT"),
+            productId: newProdId,
+            reserved: 0,
+            ...batchData,
+          };
+          d.products.unshift(newProd);
+          d.batches.unshift(newBatch);
+          notify(
+            d,
+            `New Medicine Added: ${newProd.name}`,
+            `Added ${newProd.name} (${newProd.packSize}) with batch ${newBatch.batchNo} (${newBatch.qty} units).`,
+            ["admin", "buyer", "warehouse"],
+          );
+          log(d, "admin", "Distributor Admin", "PRODUCT_ADD", newProd.name, `Batch ${newBatch.batchNo}, ${newBatch.qty} units`);
+        }),
 
       updateSettings: (patch) =>
         set((d) => {
