@@ -110,6 +110,8 @@ interface Ctx {
     product: Omit<Product, "id">,
     batch: Omit<Batch, "id" | "productId" | "reserved">
   ) => void;
+  addBuyer: (buyerData: Omit<import("./types").Buyer, "id" | "outstanding">) => void;
+  selectBuyer: (buyerId: string) => void;
   updateSettings: (patch: Partial<Settings>) => void;
   markNotificationsRead: (role: Role) => void;
   resetDemo: () => void;
@@ -578,6 +580,28 @@ export function StoreProvider({ children }: { children: ReactNode }) {
             ["admin", "buyer", "warehouse"],
           );
           log(d, "admin", "Distributor Admin", "PRODUCT_ADD", newProd.name, `Batch ${newBatch.batchNo}, ${newBatch.qty} units`);
+        }),
+
+      addBuyer: (buyerData) =>
+        set((d) => {
+          const newBuyer: import("./types").Buyer = {
+            id: id("BUY"),
+            outstanding: 0,
+            ...buyerData,
+          };
+          d.buyers.unshift(newBuyer);
+          notify(
+            d,
+            `New Pharmacy Account: ${newBuyer.shopName}`,
+            `Registered ${newBuyer.shopName} (${newBuyer.city}) with GSTIN ${newBuyer.gstin} and ₹${newBuyer.creditLimit.toLocaleString("en-IN")} credit line.`,
+            ["admin", "finance"],
+          );
+          log(d, "admin", "Distributor Admin", "BUYER_ADD", newBuyer.shopName, `Credit limit ₹${newBuyer.creditLimit}`);
+        }),
+
+      selectBuyer: (buyerId) =>
+        set((d) => {
+          d.buyerId = buyerId;
         }),
 
       updateSettings: (patch) =>

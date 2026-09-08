@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { AppShell } from "@/components/pharma/AppShell";
+import { AddBuyerModal } from "@/components/pharma/AddBuyerModal";
 import { KpiCard, SectionHeader } from "@/components/pharma/bits";
 import { inr, useStore } from "@/lib/pharma/store";
 
@@ -22,7 +22,11 @@ function Buyers() {
 
   return (
     <AppShell role="admin">
-      <SectionHeader title="Buyers" subtitle="Retail pharmacy accounts and their credit position" />
+      <SectionHeader
+        title="Buyers"
+        subtitle="Retail pharmacy accounts and their credit position"
+        actions={<AddBuyerModal />}
+      />
       <div className="mb-5 grid gap-3 sm:grid-cols-3">
         <KpiCard label="Accounts" value={state.buyers.length} />
         <KpiCard label="Credit extended" value={inr(limit)} />
