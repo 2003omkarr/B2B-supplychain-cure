@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AppShell } from "@/components/pharma/AppShell";
 import { AddBuyerModal } from "@/components/pharma/AddBuyerModal";
 import { KpiCard, SectionHeader } from "@/components/pharma/bits";
 import { inr, useStore } from "@/lib/pharma/store";
