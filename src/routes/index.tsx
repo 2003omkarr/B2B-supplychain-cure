@@ -85,28 +85,27 @@ function RolePicker() {
           </div>
         </header>
 
-        <div className="mt-10 rounded-3xl border bg-card/60 p-6 md:p-8 backdrop-blur shadow-sm">
-          <h1 className="font-display text-3xl font-extrabold leading-tight text-foreground md:text-4xl lg:text-5xl">
-            One Order. Five Roles. <br className="hidden sm:inline" />
+        <div className="mt-8 rounded-2xl border bg-card/60 p-5 md:p-6 backdrop-blur shadow-xs">
+          <h1 className="font-display text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl">
+            One Order. Five Roles.{" "}
             <span className="bg-gradient-to-r from-primary via-teal-600 to-emerald-600 bg-clip-text text-transparent dark:from-sky-400 dark:via-teal-400 dark:to-emerald-400">
               The Entire Distribution Lifecycle.
             </span>
           </h1>
 
-          <p className="mt-3.5 max-w-2xl text-base text-muted-foreground leading-relaxed md:text-lg">
+          <p className="mt-2 max-w-xl text-xs text-muted-foreground leading-relaxed sm:text-sm">
             Place an order as a retail pharmacy and watch it flow seamlessly through automatic FEFO batch
-            allocation, warehouse picking & packing, dispatch, live tracking, and COD
-            reconciliation.
+            allocation, warehouse picking & packing, dispatch, live tracking, and COD reconciliation.
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium">
-            <span className="inline-flex items-center gap-1.5 rounded-lg border bg-background/80 px-3 py-1 text-foreground shadow-2xs">
+          <div className="mt-4 flex flex-wrap gap-2 text-[11px] font-medium">
+            <span className="inline-flex items-center gap-1.5 rounded-md border bg-background/80 px-2.5 py-0.5 text-foreground shadow-2xs">
               ⚡ FEFO Batch Engine
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-lg border bg-background/80 px-3 py-1 text-foreground shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 rounded-md border bg-background/80 px-2.5 py-0.5 text-foreground shadow-2xs">
               ❄️ Cold-Chain Telemetry
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-lg border bg-background/80 px-3 py-1 text-foreground shadow-2xs">
+            <span className="inline-flex items-center gap-1.5 rounded-md border bg-background/80 px-2.5 py-0.5 text-foreground shadow-2xs">
               💳 Credit Terms & COD
             </span>
           </div>
