@@ -86,6 +86,9 @@ function RolePicker() {
           </p>
         </div>
 
+        {/* Hero Promotional Banner Carousel */}
+        <PromoBannerCarousel />
+
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
           {[
             { icon: Layers, label: "Live SKUs", value: state.products.length },
@@ -99,9 +102,6 @@ function RolePicker() {
             </div>
           ))}
         </div>
-
-        {/* Hero Promotional Banner Carousel */}
-        <PromoBannerCarousel />
 
         {/* Near-expiry deals carousel — showcases the FEFO engine */}
         <NearExpiryCarousel />
